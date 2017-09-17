@@ -1,0 +1,210 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 col-sm-offset-1">
+            <div class="box box-widget" style="margin-top:50px;margin-bottom:50px;">
+                <div class="box-header with-border">
+                    <h4 class="box-title">机构注册</h4>
+                    <a class="pull-right" ui-sref="login.login">返回登录</a>
+                </div>
+                <div class="box-body">
+                    <div class="container-fluid">
+                        <div class="row ">
+                            <div class="col-xs-4 step">
+                                <span ng-class="{'bg-vart':step==1}">1. 创建账号</span>
+                            </div>
+                            <div class="col-xs-4 step">
+                                <span ng-class="{'bg-vart':step==2}">2. 填写机构基本信息</span>
+                            </div>
+                            <div class="col-xs-4 step">
+                                <span ng-class="{'bg-vart':step==3}">3. 注册成功 等待审核</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- step 1 -->
+                    <form name="form1" novalidate class="form-horizontal" ng-show="step==1">
+                        <div class="form-group">
+                            <label  class="control-label col-sm-2">用户名</label>
+
+                            <div class="col-sm-6">
+                                <input type="email" placeholder="请填写您的Email地址" ng-model="info.email"
+                                       class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="control-label col-sm-2">密码</label>
+
+                            <div class="col-sm-6">
+                                <input type="password" placeholder="密码长度6到20位" ng-model="info.password"
+                                       class="form-control" minlength="6" maxlength="20" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="control-label col-sm-2">确认密码</label>
+
+                            <div class="col-sm-6">
+                                <input type="password" placeholder="请再输入一遍密码" ng-model="info.confirmPassword"
+                                       class="form-control" minlength="6" maxlength="20" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-offset-2">
+                                <button type="submit" class="btn btn-lg btn-block bg-vart" ng-disabled="form1.$invalid"
+                                        ng-click="next()">下一步
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- step 2 -->
+                    <form name="form2" novalidate class="form-horizontal" ng-show="step==2">
+                        <div class="form-group">
+                            <div class="col-sm-11 col-sm-offset-1">
+                                <p class="form-control-static">欢迎注册VART，请留下您的基本信息和联系方式。建议您同时填写英语信息，方便全球用户浏览。</p>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="control-label col-sm-2">
+                                机构名
+                                <span class="text-red">*</span>
+                            </label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-model="info.name" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="control-label col-sm-2">
+                                机构名(英语)
+                            </label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" ng-model="info.nameEn">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="control-label col-sm-2">机构类型</label>
+
+                            <div class="col-sm-4">
+                                <select ng-model="info.category" class="form-control">
+                                    <option value="">请选择机构类型</option>
+                                    <option value="1">博物馆</option>
+                                    <option value="2">美术馆</option>
+                                    <option value="3">画廊</option>
+                                    <option value="4">其他</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="control-label col-sm-2">
+                                所在城市
+                                <span class="text-red">*</span>
+                            </label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" required ng-model="info.city">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="control-label col-sm-2">
+                                LOGO
+                                <span class="text-red">*</span>
+                            </label>
+
+                            <div class="col-sm-4">
+                                <img-upload ng-model="info.logoImage" catalog="104" limit-width="200"
+                                            limit-height="200"></img-upload>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="control-label col-sm-2">
+                                地址
+                                <span class="text-red">*</span>
+                            </label>
+
+                            <div class="col-sm-10">
+                                <textarea class="form-control" required ng-model="info.address"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="control-label col-sm-2">
+                                地址(英语)
+                            </label>
+
+                            <div class="col-sm-10">
+                                <textarea class="form-control" ng-model="info.addressEn"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="control-label col-sm-2">
+                                开放时间
+                                <span class="text-red">*</span>
+                            </label>
+
+                            <div class="col-sm-10">
+                                <textarea class="form-control" ng-model="info.openTime" required></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label  class="control-label col-sm-2">
+                                电话
+                                <span class="text-red">*</span>
+                            </label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" required ng-model="info.tel">
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="form-group">
+                            <label  class="control-label col-sm-2">
+                                联系人姓名
+                                <span class="text-red">*</span>
+                            </label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" required ng-model="info.contactPerson">
+                            </div>
+                            <label  class="control-label col-sm-2">
+                                联系方式
+                                <span class="text-red">*</span>
+                            </label>
+
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" ng-model="info.contactInfo" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label  class="control-label col-sm-2">备注</label>
+
+                            <div class="col-sm-10">
+                                <textarea class="form-control" ng-model="info.remark" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-lg btn-block bg-vart" ng-disabled="form2.$invalid"
+                                        ng-click="submit()">立即注册
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <!-- step 3 -->
+                    <div ng-show="step==3" class="text-center" style="padding:50px 0">
+                        <p>
+                            <i class="fa fa-check text-success" style="font-size:8em"></i>
+                        </p>
+
+                        <p>
+                            感谢您注册VART！我们将在三个工作日内审核您提交的信息，届时可能会有工作人员与您取得联系。
+                        </p>
+
+                        <p>
+                            如有任何疑问，请发邮件至<a href="mailto:contact@voiceclubfm.com">contact@voiceclubfm.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

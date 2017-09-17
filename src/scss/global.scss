@@ -1,0 +1,141 @@
+@import "var";
+
+
+.font-999{
+    color: #999 !important;
+}
+.products-title{
+  width: 100px;
+  display: inline-block;
+  line-height: 30px;
+}
+.glyphicon-star.active{
+	color:red;
+}
+input[type=checkbox][dataimg=right]{
+	 -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    background: #fff;
+    position: absolute;
+    right: 15px;
+    top: 0;
+    z-index: 99;
+    padding: 0;
+    margin:0;
+    border:2px solid lightblue;
+    background-color:#fff;
+    border-radius:4px;
+    overflow: hidden;
+}
+input[type=checkbox][dataimg]:checked{
+ 	background:url(../img/check-box-checked.png) no-repeat center center/100% 100%;
+ 	border:0;
+}
+.label-icheck{
+    width: 20px;
+    height: 20px;
+    margin: 0px !important;
+    left: 0px;
+}
+.skin-black .sidebar-menu>li>.treeview-menu>li>.treeview-menu{
+    background:#3a515a;
+    margin-left: -5px;
+}
+.glyphicon-remove-circle{
+    cursor: pointer;
+    color: #fd8172;
+}
+.glyphicon-remove-circle:hover{
+    color: red;
+}
+.tree-node-title+span{
+    display: none;
+}
+.tree-node:hover .tree-node-title+span{
+    display: inline-block;
+}
+.shopStatus{
+    input,label{
+        cursor: pointer;
+    }
+    label{
+        color: #888;
+    }
+}
+img{
+    max-width:100%;
+}
+.media{
+    .media-left{
+        min-width: 150px;
+    }
+}
+.color-setting{
+    small{
+        margin-right: 10px;
+    }
+}
+.menu-edit-wrap{
+    padding-left: 40px;
+    .menu-edit{
+        padding-left: 80px;
+
+    }
+    .menu-title{
+        padding-left: 40px;
+    }
+    .menu-title{
+        line-height: 40px;
+    }
+}
+.wechat-logo{
+    padding:15px !important;
+}
+.node_row{
+    input[type=checkbox],
+    span{
+        cursor: pointer;
+    }
+}
+.flex-box-row{
+    display: flex;
+    .box-item{
+        position: relative;
+        .tag{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+    }
+    .box-item:first-child{
+        flex: 1;
+        img{
+            width: 60px;
+            height: 60px;
+        }
+    }
+    .box-item:last-child{
+        flex: 3;
+        p{
+            margin-bottom: 0 !important;
+        }
+        .label{
+            padding: 1px 2px !important;
+        }
+    }
+}
+.from-spec{
+    margin: 0 5px;
+}
+.default-gray{
+    color: #999;
+    font-size: 12px;
+    cursor: default;
+    &:hover{
+        color: #999;
+    }
+}

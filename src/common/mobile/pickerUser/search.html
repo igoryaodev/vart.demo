@@ -1,0 +1,55 @@
+<div class="modal">
+    <div class="modal-dialog" style="width:75%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="$hide()">×</button>
+                <h4 class="modal-title" translate>用户列表</h4>
+            </div>
+
+
+            <div class="modal-body">
+                <div>
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-1 control-label" translate>用户名</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="criteria.Keyword">
+                            </div>
+                            <div class="col-sm-2">
+                                <button class="btn bg-vart" translate ng-click="search()">common.search</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <hr>
+                <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>用户名</th>
+                        <th>性别</th>
+                        <th>创建日期</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in users.list">
+                        <td>
+                            <img ng-if="user.avatarImage.key" width="60" height="60" ng-src="{{user.avatarImage.key}}" alt="">
+                            <img ng-if="!user.avatarImage.key" width="60" height="60" ng-src="{{user.titleImage.key|qiniu}}" alt="">
+                        </td>
+                        <td>{{user.alias}}</td>
+                        <td>{{user.gender|gender}}</td>
+                        <td>{{user.createdTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+                        <td>
+                          <a class="btn btn-default" ng-click="selectUser(user)" translate>common.choose</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+                <pager total="{{users.totalPages}}" current="{{users.pageNumber}}"
+                       page-change="pageChange(page)"></pager>
+            </div>
+        </div>
+    </div>
+</div>

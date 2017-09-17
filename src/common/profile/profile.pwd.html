@@ -1,0 +1,46 @@
+<div class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <form name="form" class="form-horizontal" novalidate>
+                <div class="modal-header">
+                    <button class="close" type="button" ng-click="$hide()"><span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" translate>profile.changePassword</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" translate>profile.oldPassword</label>
+
+                        <div class="col-sm-10">
+                            <input type="password" ng-model="password.oldPassword" required class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" translate>profile.newPassword</label>
+
+                        <div class="col-sm-10">
+                            <input type="password" ng-model="password.newPassword" minlength="6" maxlength="20" required
+                                   class="form-control">
+                            <span class="help-block" translate>profile.passwordRequirement</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" translate>profile.confirmPassword</label>
+
+                        <div class="col-sm-10">
+                            <input type="password" ng-model="password.confirmPassword" minlength="6" maxlength="20"
+                                   required class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" ng-click="$hide()" translate>common.cancel</button>
+                    <button type="submit" class="btn bg-vart" ng-click="changePwd()"
+                            ng-disabled="form.$invalid" translate>common.save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

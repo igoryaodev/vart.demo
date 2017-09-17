@@ -1,0 +1,51 @@
+@import "../../var";
+
+.td-single-btn {
+  width: 80px;
+}
+
+.td-img-150 {
+  width: 150px;
+  img {
+    width: 100%;
+  }
+}
+
+.td-img-80 {
+  width: 80px;
+  img {
+    width: 100%;
+  }
+}
+
+.btn-fixed {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.content {
+  padding-bottom: 40px !important;
+}
+
+.content-title {
+  min-height: 40px;
+
+  h3, ul.nav-pills {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  h3 {
+    margin: 0 10px 0 0;
+  }
+
+  ul.nav-pills > li > a {
+    border: none;
+  }
+
+  ul.nav-pills > li.active > a {
+    background-color: $vart-color-dark;
+  }
+}

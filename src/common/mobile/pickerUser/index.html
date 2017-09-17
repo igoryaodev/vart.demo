@@ -1,0 +1,32 @@
+<p class="pull-left">
+  <button class="btn bg-vart" translate ng-click="chooseUsersModal()">选择用户</button>
+</p>
+<div class="clear"></div>
+<!-- 多选 -->
+<div ng-if="isSinglePick!=true">
+  <p class="text-center" ng-show="!ngModel.length>0" translate>common.notYetAdded</p>
+  <table class="table table-striped" ng-show="ngModel.length>0">
+      <tbody>
+      <tr ng-repeat="user in ngModel">
+          <td>
+              <img ng-if="user.avatarImage.key" width="60" height="60" ng-src="{{user.avatarImage.key}}" alt="">
+              <img ng-if="!user.avatarImage.key" width="60" height="60" ng-src="{{user.titleImage.key|qiniu}}" alt="">
+          </td>
+          <td>{{user.alias}}</td>
+          <td>{{user.gender|gender}}</td>
+          <td>{{user.createdTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+          <td>
+              <a ng-click="removePro($index)" translate>common.remove</a>
+          </td>
+      </tr>
+      </tbody>
+  </table>
+</div>
+
+<!-- 单选 -->
+<div ng-if="isSinglePick== true">
+  <p class="text-center" ng-show="ngModel==undefined" translate>common.notYetAdded</p>
+  <p class="text-center" ng-if="ngModel">
+    {{ngModel.alias}}
+  </p>
+</div>

@@ -1,0 +1,129 @@
+<div class="modal">
+    <div class="modal-dialog" style="width:70%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="$hide()">×</button>
+                <h4 class="modal-title">机构注册</h4>
+            </div>
+            <div class="modal-body  form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-2">
+                        机构名
+                    </label>
+
+                    <div class="col-sm-10">
+                        <p class="form-control-static">{{selectedItem.name}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">
+                        机构名(英语)
+                    </label>
+
+                    <div class="col-sm-10">
+                        <p class="form-control-static">{{selectedItem.nameEn}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">所在城市</label>
+
+                    <div class="col-sm-4">
+                        <p class="form-control-static">{{selectedItem.city}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">地址</label>
+
+                    <div class="col-sm-10">
+                        <p class="form-control-static">{{selectedItem.address}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">地址(英语)</label>
+
+                    <div class="col-sm-10">
+                        <p class="form-control-static">{{selectedItem.addressEn}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">开放时间</label>
+
+                    <div class="col-sm-10">
+                        <p class="form-control-static">{{selectedItem.openTime}}</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">电话</label>
+
+                    <div class="col-sm-4">
+                        <p class="form-control-static">{{selectedItem.tel}}</p>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">联系人姓名</label>
+
+                    <div class="col-sm-4">
+                        <p class="form-control-static">{{selectedItem.contactPerson}}</p>
+                    </div>
+                    <label class="control-label col-sm-2">联系方式</label>
+
+                    <div class="col-sm-4">
+                        <p class="form-control-static">{{selectedItem.contactInfo}}</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">备注</label>
+
+                    <div class="col-sm-10">
+                        <p class="form-control-static">{{selectedItem.remark}}</p>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2">注册时间</label>
+                    <div class="col-sm-4">
+                        <p class="form-control-static">{{selectedItem.createdTime|date}}</p>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div ng-show="selectedItem.isApproved!=true">
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="radio" id="t1" ng-model="selected.t" value="1" checked>
+                            <label for="t1">新建场馆</label>
+
+                            <p>系统将自动为该账号创建场馆，创建完成后需要手动更新城市、坐标等信息。</p>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <input type="radio" id="t2" ng-model="selected.t" value="2">
+                            <label for="t2">关联现有场馆</label>
+                            <p>
+                                该场馆已存在VART中，请选择需要关联的场馆Id
+                                <input type="text" class="form-control" ng-focus="focus()" ng-model="selected.pavId"
+                                       style="display:inline;width:100px;"/>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-12">
+                            <button class="btn bg-vart btn-block btn-lg" ng-click="activate()">确认开通</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" ng-show="selectedItem.isApproved==true">
+                    <div class="col-sm-12">
+                        <p class="text-center">该场馆已开通. 开通时间{{selectedItem.approveTime|date}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

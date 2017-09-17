@@ -1,0 +1,43 @@
+<div class="box box-widget">
+  <div class="box-body">
+    <div class="content-title">
+      <div class="pull-right">
+        <button type="button" class="btn bg-vart" translate ng-click="save()">common.save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="box box-widget">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label translate>authority.user</label>
+          <ui-select autofocus="true" ng-model="roleMenu.role" on-select="selectUser($item)">
+              <ui-select-match allow-clear="true"
+                               placeholder="{{'authority.pleaseSelectUser'|translate}}">
+                  {{$select.selected.username}}
+              </ui-select-match>
+              <ui-select-choices repeat="p in userList track by $index"
+
+                                 refresh-delay="0">
+                  <div>
+                      <p>{{p.username}}</p>
+                  </div>
+              </ui-select-choices>
+          </ui-select>
+        </div>
+        <div class="role-list">
+          <ol>
+            <li ng-repeat="item in roleList">
+              <div class="tree-node tree-node-content" >
+                <input type="checkbox" class="item-check" data-id="{{item.Id}}" ng-checked="item.isChecked">
+                {{item.roleName}}
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

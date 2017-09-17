@@ -1,0 +1,60 @@
+<div class="box box-widget">
+  <div class="box-body">
+    <div class="content-title">
+      <div class="pull-right">
+        <button type="button" class="btn bg-vart" translate ng-click="roleModal()">authority.newRole</button>
+        <button type="button" class="btn bg-vart" translate ng-click="save()">common.save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="box box-widget">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <label translate>authority.role</label>
+          <ui-select autofocus="true" ng-model="roleMenu.role" on-select="selectRole($item)">
+              <ui-select-match allow-clear="true"
+                               placeholder="{{'authority.pleaseSelectRole'|translate}}">
+                  {{$select.selected.roleName}}
+              </ui-select-match>
+              <ui-select-choices repeat="p in roleList track by $index"
+
+                                 refresh-delay="0">
+                  <div>
+                      <p>{{p.roleName}} - {{p.description}}</p>
+                  </div>
+              </ui-select-choices>
+          </ui-select>
+        </div>
+        <div class="rights-tree">
+          <ol ng-model="list">
+            <li ng-repeat="item in list | orderBy:'sort'" >
+              <div class="tree-node tree-node-content" >
+                <input type="checkbox" class="item-check" data-id="{{item.id}}" ng-checked="item.isChecked || item.nameCode == 'base' || item.nameCode =='common.settings'" ng-click="checkItem(item.id)">
+                {{item.nameCode | translate}}
+              </div>
+              <ol ng-model="item.items">
+                <li ng-repeat="subItem in item.Childs | orderBy:'sort'">
+                  <div class="tree-node tree-node-content">
+                    <input type="checkbox" class="sub-check" data-parentId="{{item.id}}" ng-checked="subItem.isChecked || subItem.navigateUrl == 'app.profile'" data-id="{{subItem.id}}" ng-click="checkItem(subItem.id)">
+                    {{subItem.nameCode| translate}}
+                  </div>
+                  <ol ng-model="subItem.items">
+                    <li ng-repeat="third in subItem.Childs | orderBy:'sort'">
+                      <div class="tree-node tree-node-content">
+                        <input type="checkbox" class="third-check" data-parentId="{{subItem.id}}" ng-checked="third.isChecked" data-id="{{third.id}}" ng-click="checkItem(third.id)">
+                        {{third.nameCode | translate}}
+                      </div>
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

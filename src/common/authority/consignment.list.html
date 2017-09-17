@@ -1,0 +1,39 @@
+
+<div class="box box-widget">
+  <div class="box-body">
+    <div class="content-title">
+      <div class="pull-right">
+        <button type="button" class="btn bg-vart" translate ng-click="newConsignmentModal()">common.new</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="box box-widget">
+  <div class="box-body">
+    <div class="">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>TENANT ID</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="t in consignment.list">
+          <td>{{t.id}}</td>
+          <td>{{t.tenant.name}}</td>
+          <td>{{t.tenantId}}</td>
+          <th>
+            <a class="danger" ng-click="remove(t.id)">删除</a>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+    <pager total="{{consignment.totalPages}}" current="{{consignment.pageNumber}}" pageChange="page"></pager>
+
+    </div>
+  </div>
+</div>
+

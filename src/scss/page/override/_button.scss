@@ -1,0 +1,25 @@
+.btn-app-danger {
+    color: white;
+    background: $color-danger;
+}
+
+.btn-app-danger:hover {
+    color: white;
+    background: $color-danger-active;
+    border-color: $color-danger-active;
+}
+
+.btn-app-link-danger {
+    color: $color-danger-active;
+}
+
+.btn-app-warning {
+    color: white;
+    background: $color-warning;
+}
+
+.btn-app-warning:hover {
+    color: white;
+    background: $color-warning-active;
+    border-color: $color-warning-active;
+}

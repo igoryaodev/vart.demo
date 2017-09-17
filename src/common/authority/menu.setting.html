@@ -1,0 +1,57 @@
+
+<div class="box box-widget">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <div class="rights-tree">
+          <ol ng-model="list">
+            <li ng-repeat="item in menu" >
+              <div class="tree-node tree-node-content" >
+                <label class="tree-node-title">
+                    <i class="text-center fa gray" ng-class="item.icon"></i>
+                    <span>{{item.menuName}}</span>
+                    <label class="label-danger" ng-if="item.isEnable == false">未启用</label>
+                </label>
+                <span>
+                    <a menu-modal parent-id="item.id" menu-type="1" style="margin-left: 10px;">+添加 </a>
+                    <a menu-modal="item" parent-id="0" menu-type="2" style="margin-left: 5px;">编辑 </a>
+                    <i class="glyphicon glyphicon-remove-circle" ng-click="remove(item.id)"></i>
+                </span>
+              </div>
+              <ol ng-model="item.items">
+                <li ng-repeat="subItem in item.Childs">
+                  <div class="tree-node tree-node-content">
+                    <span class="tree-node-title">
+                        <i class="text-center fa gray" ng-class="subItem.icon"></i>
+                        {{subItem.menuName}}
+                    </span>
+                    <span>
+                        <a menu-modal parent-id="subItem.id" menu-type="1" style="margin-left: 10px;">+添加 </a>
+                        <a menu-modal="subItem" parent-id="subItem.parentID" menu-type="2"  style="margin-left: 5px;">编辑 </a>
+                        <i class="glyphicon glyphicon-remove-circle" ng-click="remove(subItem.id)"></i>
+                    </span>
+                  </div>
+                  <ol ng-model="subItem.Childs">
+                    <li ng-repeat="third in subItem.Childs" style="color: #888;">
+                      <div class="tree-node tree-node-content">
+                        <span class="tree-node-title gray">{{third.menuName}}</span>
+                        <span>
+                            <a menu-modal="third" parent-id="third.parentID" menu-type="2"  style="margin-left: 5px;">编辑 </a>
+                            <i class="glyphicon glyphicon-remove-circle" ng-click="remove(third.id)"></i>
+                        </span>
+
+                      </div>
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+        <div>
+          <button menu-modal parent-id="0" menu-type="1" class="btn btn-default" style="margin: 40px;">新增主菜单</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+@import "../var";
+
+.thumbnail {
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+
+  .thumbnail-pending {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    position: absolute;
+
+    .fa-refresh {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: -15px;
+      margin-top: -15px;
+      color: #000;
+      font-size: 30px;
+    }
+  }
+
+  .caption {
+    h4, h5 {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+}

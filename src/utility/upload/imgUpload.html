@@ -1,0 +1,12 @@
+<div class="container-fluid uploader">
+    <div class="row">
+        <div class="col-sm-12 uploader-preview" ngf-select ngf-drop ngf-change="upload(file)" ng-model="file" ngf-multiple="false" ngf-allow-dir="false" accept="image/*" ngf-max-size="4MB">
+            <h6 translate>utility.clickOrDragImg</h6>
+            <h6 class="text-muted">{{constraint}}</h6>
+            <div class="progress progress-xs" ng-if="progress!=undefined">
+                <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="progress"></div>
+            </div>
+                <img class="thumbnail" ng-style="style" ng-src="{{getUrl()}}" alt="" />
+        </div>
+    </div>
+</div>

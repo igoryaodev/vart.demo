@@ -1,0 +1,43 @@
+<div class="modal">
+    <div class="modal-dialog" style="width:75%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="$hide()">×</button>
+                <h4 class="modal-title" translate>authority.selectTenant</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                  <div class="form-group">
+                    <label class="col-sm-1 control-label" translate>audit.institutionName</label>
+                    <div class="col-sm-4">
+                      <input type="text" ng-model="criteria.name" placeholder="" class="form-control">
+                    </div>
+                    <div class="col-sm-2">
+                      <button type="button" class="btn bg-vart" translate ng-click="search()">common.search</button>
+                    </div>
+                  </div>
+                </form>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                      <td>#</td>
+                      <td translate>audit.institutionName</td>
+                      <td translate>common.operation</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="item in tenants.list">
+                      <td>{{item.id}}</td>
+                      <td>{{item.name}}</td>
+                      <td>
+                        <a class="btn btn-default" ng-click="confirmTenant(item)" translate>common.choose</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <pager total="{{tenants.totalPages}}" current="{{tenants.pageNumber}}"
+                       page-change="pageChange(page)"></pager>
+            </div>
+        </div>
+    </div>
+</div>

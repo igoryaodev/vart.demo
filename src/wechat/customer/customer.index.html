@@ -1,0 +1,362 @@
+<section class="content-header">
+    <h1>
+        {{tenant.title}}
+        <small>
+            <a ui-sref="app.wechat_customer_list" class="btn btn-default" translate>common.backToList</a>
+        </small>
+    </h1>
+</section>
+<section class="content body">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="nav-tabs-custom" bs-tabs>
+                <!--首页信息-->
+                <div class="tab-content" bs-pane name="tenant" data-title="首页">
+                    <form novalidate>
+
+                        <div class="row">
+                            <div class="form-group col-sm-6" id="images">
+                                <div class="row">
+                                    <label class="col-sm-1 control-label" translate>
+                                       LOGO
+                                    </label>
+                                    <div class="col-sm-5">
+                                        <img-upload ng-model="tenant.loginImageDto"
+                                                    catalog="102"></img-upload>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label translate>商户名</label>
+                                <input type="text" ng-model="tenant.title" class="form-control" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label translate>主题</label>
+                                <select ng-model="tenant.theme" options="options" class="form-control">
+                                    <option ng-repeat="theme in wechatTheme" value="{{theme.theme}}">{{theme.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="form-group col-sm-6">
+                                <label translate>font color</label>
+                                <color-picker ng-model="tenant.fontColor"></color-picker>
+                                <!-- <input type="text" class="form-control" required ng-model="tenant.fontColor" placeholder="#ed3024"> -->
+                               <p class="color-setting">
+                                    <small class="font-gray">艺仓：#1a1919</small>
+                                    <small class="font-gray">余德耀：#852C2B</small>
+                                    <small class="font-gray">儿童剧场：#4dc0b1</small>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="form-group col-sm-6">
+                                <label translate>button color</label>
+                                <color-picker ng-model="tenant.buttonColor"></color-picker>
+                                <p class="color-setting">
+                                    <small class="font-gray">艺仓：#1a1919</small>
+                                    <small class="font-gray">余德耀：#852C2B</small>
+                                    <small class="font-gray">儿童剧场：#4dc0b1</small>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="form-group col-sm-6">
+                                <label translate>icon color</label>
+                                <color-picker ng-model="tenant.iconColor"></color-picker>
+                                <p class="color-setting">
+                                    <small class="font-gray">艺仓：#1a1919</small>
+                                    <small class="font-gray">余德耀：#852C2B</small>
+                                    <small class="font-gray">儿童剧场：#4dc0b1</small>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="form-group col-sm-6">
+                                <label translate>hr color</label>
+                                <color-picker ng-model="tenant.hrColor"></color-picker>
+                                <p class="color-setting">
+                                    <small class="font-gray">艺仓：#1a1919</small>
+                                    <small class="font-gray">余德耀：#852C2B</small>
+                                    <small class="font-gray">儿童剧场：#4dc0b1</small>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="row">
+
+                            <div class="form-group col-sm-6">
+                                <label translate>菜单</label>
+                                <ui-select multiple autofocus="true" ng-model="tenant.headMenus" on-select="selectMenu($item)">
+                                    <ui-select-match allow-clear="true" placeholder="选择菜单">
+                                        {{$item.menuName}}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="m in wechatProductMenus track by $index"
+                                                       refresh="refreshMenus($select.search)"
+                                                       refresh-delay="0">
+                                        <div>
+                                            <p>{{m.menuName}}</p>
+                                        </div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>  
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 form-group menu-edit-wrap">
+                                <label>菜单编辑</label>
+                                <div ng-repeat="m in tenant.headMenus">
+                                    <div class="menu-title">
+                                        {{m.menuName}}
+                                    </div>
+                                    <div class="menu-edit">
+                                        <input type="text" class="form-control" ng-model="m.menuName">
+                                        <input disabled class="form-control" ng-model="m.isEnable">
+                                        <input type="text" class="form-control" ng-model="m.nameCode">
+                                        <input type="text" class="form-control" ng-model="m.navigateUrl">
+                                        <input type="number" class="form-control" ng-model="m.sort">
+                                        <!-- <select class="form-control" ng-model="m.sort" convert-to-number>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select> -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      <!--   <div class="row">
+                            <div class="form-group col-sm-6">
+                                <button class="btn bg-vart pull-right" ng-click="newHeadMenu()">新增菜单</button>
+                            </div>
+                        </div> -->
+                        <br>
+                        <div class="row">
+                            
+                            <div class="form-group col-sm-6">
+                                <label translate>用户协议（中文）</label>
+                                <rtf-editor ng-model="tenant.agreementZH"></rtf-editor>
+                                
+                            </div>  
+                            <div class="form-group col-sm-6">
+                                <label translate>用户协议（英文）</label>
+                                <rtf-editor ng-model="tenant.agreementEN"></rtf-editor>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 form-group">
+                                <label translate>css样式</label>
+                                <p class="color-setting">
+                                    <small class="font-gray">售罄  .stock-hide-default,.stock-hide-bottom{display:none !important;}</small>
+                                    <small class="font-gray">弹出填写宝宝信息框  .profile-modal-display{display:none !important;}</small>
+                                </p>
+                                <textarea cols="30" rows="10" class="form-control" ng-model="tenant.memberStyle"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button class="btn bg-vart" ng-disabled="form.$invalid" ng-click="saveTenant()" translate>
+                                common.save
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 个人中心 -->
+                <div class="tab-content" bs-pane name="profile" data-title="个人中心">
+                    <form novalidate>
+                        <div class="row">
+
+                            <div class="form-group col-sm-6">
+                                <label translate>菜单</label>
+                                <ui-select multiple autofocus="true" ng-model="profile.headMenus" on-select="selectMenu($item)">
+                                    <ui-select-match allow-clear="true" placeholder="选择菜单">
+                                        {{$item.menuName}}
+                                    </ui-select-match>
+                                    <ui-select-choices repeat="m in wechatProfileMenus track by $index"
+                                                       refresh="refreshMenus($select.search)"
+                                                       refresh-delay="0">
+                                        <div>
+                                            <p>{{m.menuName}}</p>
+                                        </div>
+                                    </ui-select-choices>
+                                </ui-select>
+                            </div>  
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6 form-group menu-edit-wrap">
+                                <label>菜单编辑</label>
+                                <div ng-repeat="m in profile.headMenus">
+                                    <div class="menu-title">
+                                        {{m.menuName}}
+                                    </div>
+                                    <div class="menu-edit">
+                                        <input type="text" class="form-control" ng-model="m.menuName">
+                                        <input disabled class="form-control" ng-model="m.isEnable">
+                                        <input type="text" class="form-control" ng-model="m.nameCode">
+                                        <input type="text" class="form-control" ng-model="m.navigateUrl">
+                                        <select class="form-control" ng-model="m.sort" convert-to-number>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            
+                            <div class="form-group col-sm-6" id="images">
+                                <hr>
+                                <div class="row">
+                                    <label class="col-sm-1 control-label" translate>
+                                       背景图
+                                    </label>
+                                    <div class="col-sm-5">
+                                        <img-upload ng-model="profile.headImageDto"
+                                                    catalog="102"></img-upload>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn bg-vart" ng-disabled="form.$invalid" ng-click="saveProfile()" translate>
+                                common.save
+                            </button>
+                        </div>
+                    </form>
+                    <br>
+                    <br>
+                    <hr style="background: #ecf0f5; width: 120%; height: 20px; margin-left: -15px;">
+                    <div class="box-widget">
+                        <div class="box-body">
+                            <div class="table-th label col-sm-12">
+                                <div class="col-sm-1">＃</div>
+                                <div class="col-sm-4" style="min-width: 220px;" translate>背景图</div>
+                                <div class="col-sm-5" translate>菜单</div>
+                                <div class="col-sm-2">操作</div>
+                            </div>
+                            <div class="table-tr col-sm-12" ng-repeat="c in profiles.list">
+                                <div class="col-sm-1">{{c.id}}</div>
+                                <div class="col-sm-4" translate style="padding: 10px;">
+                                    <img ng-src="{{c.headImageDto.key|qiniu}}" alt="" style="max-width: 200px;max-height: 80px;">
+                                </div>
+                                <div class="col-sm-5" translate>
+                                    <label style="margin: 0 5px" class="label label-default" ng-repeat="m in c.headMenus">{{m.menuName}}</label> 
+                                </div>
+                                <div class="col-sm-2">
+                                    <a class="danger" ng-click="deleteProfile(c.id)">删除</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 会员 -->
+                <div class="tab-content" bs-pane name="member" data-title="{{'member.member'|translate}}">
+                    <form novalidate>
+                        <div class="row">
+
+                            <div class="form-group col-sm-6">
+                                <label translate>提示语（中文）</label>
+                                <textarea ng-model="memberShip.memberShipTipsZH" class="form-control" cols="30" rows="10"></textarea>
+                            </div>  
+                            <div class="form-group col-sm-6">
+                                <label translate>提示语（英文）</label>
+                                <textarea ng-model="memberShip.memberShipTipsEN" class="form-control" cols="30" rows="10"></textarea>
+                            </div>  
+                        </div>
+                        <br>
+                        <div class="row">
+
+                            <div class="form-group col-sm-6">
+                                <label translate>会员福利（中文）</label>
+                                <rtf-editor ng-model="memberShip.benefitZH"></rtf-editor>
+                                
+                            </div>  
+                            <div class="form-group col-sm-6">
+                                <label translate>会员福利（英文）</label>
+                                <rtf-editor ng-model="memberShip.benefitEN"></rtf-editor>
+                                
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+
+                            <div class="form-group col-sm-6">
+                                <label translate>使用须知（中文）</label>
+                                <rtf-editor ng-model="memberShip.useRulesZH"></rtf-editor>
+                                
+                            </div>  
+                            <div class="form-group col-sm-6">
+                                <label translate>使用须知（英文）</label>
+                                <rtf-editor ng-model="memberShip.useRulesEN"></rtf-editor>
+                                
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                        
+                            <div class="form-group col-sm-6" id="images">
+
+                                <div class="row">
+                                    <label class="col-sm-1 control-label" translate>
+                                       背景图
+                                    </label>
+                                    <div class="col-sm-5">
+                                        <img-upload ng-model="memberShip.headMenus"
+                                                    catalog="102"></img-upload>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn bg-vart" ng-disabled="form.$invalid" ng-click="saveMemberShip()" translate>
+                                common.save
+                            </button>
+                        </div>
+                    </form>
+                    <br>
+                    <br>
+                    <hr style="background: #ecf0f5; width: 120%; height: 20px; margin-left: -15px;">
+                    <div class="box-widget">
+                        <div class="box-body">
+                            <div class="table-th label col-sm-12">
+                                <div class="col-sm-1">＃</div>
+                                <div class="col-sm-4" style="min-width: 220px;" translate>背景图</div>
+                                <div class="col-sm-5" translate>提示语</div>
+                                <div class="col-sm-2">操作</div>
+                            </div>
+                            <div class="table-tr col-sm-12" ng-repeat="c in memberShips.list">
+                                <div class="col-sm-1">{{c.id}}</div>
+                                <div class="col-sm-4" translate style="padding: 10px;">
+                                    <img ng-src="{{c.headMenus.key|qiniu}}" alt="" style="max-width: 200px;max-height: 80px;">
+                                </div>
+                                <div class="col-sm-5" translate>
+                                    {{c.memberShipTipsZH}}
+                                </div>
+                                <div class="col-sm-2">
+                                    <a class="danger" ng-click="deleteMemberShip(c.id)">删除</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+

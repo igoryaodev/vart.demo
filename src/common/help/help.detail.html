@@ -1,0 +1,32 @@
+<section class="content-header">
+    <h1 translate>common.help
+    </h1>
+</section>
+<section class="content body">
+    <div class="box box-widget" style="min-height: 500px">
+        <div class="box-body">
+            <div class="col-xs-4 col-md-4">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>帮助列表</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in messageList.list" ng-click="select(item)" ng-class="{active: selected.id == item.id}">
+                            <td>{{item.title}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-xs-8 col-md-8">
+                <h3 class="text-center">{{selected.title}}</h3>
+                <hr>
+                <div ng-bind-html="selected.messageContent|html">
+
+                </div>
+            </div>
+            <pager total="{{messageList.totalPages}}" current="{{messageList.pageNumber}}"></pager>
+        </div>
+    </div>
+</section>

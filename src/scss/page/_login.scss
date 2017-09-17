@@ -1,0 +1,89 @@
+@import "../var";
+.login-box {
+    position: absolute;
+    right: 15%;
+    top: 0;
+    margin-top: 2% !important;
+    background-color: rgba(0, 0, 0, 0.5);
+    .login-box-inner {
+        margin: 9px;
+        background-color: $gery-light0;
+        padding: 1em 2em;
+    }
+    .login-box-icon {
+        color: $gery-dark1;
+    }
+}
+
+.login-banner {
+    width: 100%;
+    position: relative;
+    img {
+        width: 100%;
+    }
+}
+
+.login-caption {
+    margin-left: 8%;
+    img {
+        display: inline-block;
+        width: 70px;
+        background-color: $gery-dark2;
+    }
+    h3 {
+        display: inline-block;
+        color: $gery-light1;
+        font-family: "Verdana", sans-serif;
+        margin: 0 1em;
+        vertical-align: middle;
+        font-size: 14pt;
+    }
+}
+
+.login-info {
+    padding: 30px 0;
+    h3 {
+        margin-bottom: 20px;
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        li {
+            list-style: none;
+            line-height: 1.8em;
+        }
+    }
+    .thumbnail {
+        background-color: transparent;
+        text-align: center;
+        border-color: #888;
+        color: $vart-color-dark;
+        span,
+        i {
+            display: inline-block;
+            vertical-align: middle;
+            text-align: left;
+            margin: 0 3px;
+        }
+        span {
+            font-size: 0.8em;
+        }
+    }
+    .thumbnail:hover {
+        text-decoration: none;
+        border-color: $vart-color-dark;
+    }
+}
+
+.step {
+    margin-bottom: 20px;
+    padding: 0 7px;
+    span {
+        display: inline-block;
+        width: 100%;
+        background-color: #f0f0f0;
+        color: #888888;
+        padding: 8px 20px;
+        border-radius: 4px;
+    }
+}

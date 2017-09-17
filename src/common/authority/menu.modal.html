@@ -1,0 +1,54 @@
+<div class="modal">
+    <div class="modal-dialog" style="width:70%">
+        <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" ng-click="$hide()">×</button>
+                    <h4 class="modal-title">
+                        菜单
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form novalidate name="form" form-validator>
+                        <div class="form-group">
+                             <h4 class="col-sm-2" style="padding: 0;" translate>
+                                状态
+                            </h4>
+                            <div class="col-sm-3">
+                                <input type="checkbox" bs-switch ng-model="menuProps.isEnable"
+                                       switch-on-color="danger"
+                                       switch-size="small"/>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                        <div class="form-group">
+                            <h4>名称</h4>
+                            <input class="form-control" type="text" ng-model="menuProps.menuName" required>
+                        </div>
+                        <div class="form-group">
+                            <h4>描述</h4>
+                            <input class="form-control" type="text" ng-model="menuProps.description" required>
+                        </div>
+                        <div class="form-group">
+                            <h4>排序</h4>
+                            <input class="form-control" type="text" ng-model="menuProps.sort" required>
+                        </div>
+                        <div class="form-group">
+                            <h4>name code</h4>
+                            <input class="form-control" type="text" ng-model="menuProps.nameCode" required>
+                        </div>
+                        <div class="form-group">
+                            <h4>icon</h4>
+                            <input class="form-control" type="text" ng-model="menuProps.icon" required>
+                        </div>
+                        <div class="form-group">
+                            <h4>跳转链接</h4>
+                            <input class="form-control" type="text" ng-model="menuProps.navigateUrl" required>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn bg-vart" ng-disabled="form.$invalid"  ng-click="save()" >确定</button>
+                </div>
+        </div>
+    </div>
+</div>

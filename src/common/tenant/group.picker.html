@@ -1,0 +1,23 @@
+<div class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form name="form" novalidate>
+                <div class="modal-header">
+                    <button type="button" class="close" ng-click="$hide()">×</button>
+                    <h4 class="modal-title" translate>orgnization.chooseGroup</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <select style="width: 100%" ng-model="groupId" required class="form-control"
+                                tenant-group-picker></select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn bg-vart" ng-click="chooseGroup()" ng-disabled="form.$invalid" translate>
+                        common.save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

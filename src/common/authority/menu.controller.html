@@ -1,0 +1,62 @@
+<div class="box box-widget">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <div class="rights-tree">
+          <ol ng-model="list">
+            <li ng-repeat="item in list | orderBy:'sort'" >
+              <a class="tree-node tree-node-content" ng-click="showControl(item)" ng-class="{active: item.id == selectMenuId}">
+                {{item.nameCode | translate}}
+              </a>
+              <ol ng-model="item.items">
+                <li ng-repeat="subItem in item.Childs | orderBy:'sort'">
+                  <a class="tree-node tree-node-content" ng-click="showControl(subItem)" ng-class="{active: subItem.id == selectMenuId}">
+                    {{subItem.nameCode | translate}}
+                  </a>
+                  <ol ng-model="subItem.items">
+                    <li ng-repeat="third in subItem.Childs | orderBy:'sort'">
+                      <a class="tree-node tree-node-content" ng-click="showControl(third)" ng-class="{active: third.id == selectMenuId}">
+                        {{third.nameCode | translate}}
+                      </a>
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </div>
+      <!-- controller -->
+      <div class="col-md-6 col-lg-6">
+        <div class="box box-widget">
+          <div class="box-body">
+            <div class="content-title">
+              <div class="pull-right">
+                <button type="button" class="btn bg-vart" ng-click="addMenuModal()" translate>authority.addController</button>
+              </div>
+            </div>
+            <table class="table table-stripper">
+              <thead>
+                <tr>
+                  <th translate>authority.controllerName</th>
+                  <!-- <th translate>authority.nameCode</th> -->
+                  <th translate>common.operation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="ctrl in ctrlist">
+                  <td>{{ctrl.controllerName}}</td>
+                  <!-- <td>{{ctrl.nameCode}}</td> -->
+                  <td>
+                    <a ng-click="menuModal(ctrl)" translate>common.edit</a>
+                    <a class="text-red" ng-click="delMenu(ctrl,$index)" translate>common.delete</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

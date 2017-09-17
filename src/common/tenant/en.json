@@ -1,0 +1,28 @@
+{
+  "orgnization": {
+    "orgnization": "Orgnization",
+    "name": "Orgnization",
+    "member": "Member",
+    "addMember": "Add Member",
+    "memberSearchPlaceholder": "Username, name",
+    "group": "Group",
+    "groupName": "Group Name",
+    "groupSaved": "Group saved",
+    "addGroup": "Add Group",
+    "chooseGroup": "Choose Group",
+    "memberCount": "Member Count",
+    "profile": "Profile",
+    "assignedGroup": "Group",
+    "enabled": "Enabled",
+    "disabled": "Disabled"
+  },
+  "member": {
+    "name": "Name",
+    "email": "Email",
+    "username": "Username",
+    "namePlaceholder": "Full name of the user",
+    "mobile": "Mobile",
+    "changePassword": "Change password",
+    "type": "Type"
+  }
+}

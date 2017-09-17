@@ -1,0 +1,22 @@
+{
+  "profile": {
+    "profile": "Profile",
+    "basicInfo": "Basic Information",
+    "orgnizationName": "Orgnization",
+    "authority": "Authority",
+    "name": "Name",
+    "account": "Account",
+    "username": "Username",
+    "password": "Password",
+    "oldPassword": "Old Password",
+    "newPassword": "New Password",
+    "confirmPassword": "Confirm Password",
+    "preference": "Preference",
+    "language": "Language",
+    "changePassword": "Change Password",
+    "pleaseChangePassword": "Please change your password",
+    "passwordNotMatch": "The passwords you typed do not match. Please try it again.",
+    "passwordChangeSuccess": "Your password has been changed. Please login again",
+    "passwordRequirement": "Length from 6 to 20, contains letters and numbers"
+  }
+}

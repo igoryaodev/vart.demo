@@ -1,0 +1,99 @@
+<div class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form name="form" novalidate form-validator>
+                <div class="modal-header">
+                    <button type="button" class="close" ng-click="$hide()">×</button>
+                    <h4 class="modal-title" translate>微信商城商户配置</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" ng-if="G.auth.tenantId == 1" ng-show="!newCustomer.tenantId">
+                      <tenant-picker ng-model="newCustomer.tenant"></tenant-picker>
+                    </div>
+                    <div class="form-group">
+                        <label translate>商户名</label>
+                        <input type="text" class="form-control" required ng-model="newCustomer.title">
+                    </div>
+                    <div class="form-group">
+                        <label translate>主题</label>
+                        <select ng-model="newCustomer.theme" class="form-control">
+                            <option ng-repeat="theme in wechatTheme" value="{{theme.theme}}">{{theme.name}}</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label translate>font color</label>
+                        <color-picker ng-model="newCustomer.fontColor"></color-picker>
+                        <p class="color-setting">
+                            <small class="font-gray">艺仓：#1a1919</small>
+                            <small class="font-gray">余德耀：#852C2B</small>
+                            <small class="font-gray">儿童剧场：#4dc0b1</small>
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label translate>button color</label>
+                        <color-picker ng-model="newCustomer.buttonColor"></color-picker>
+                        <p class="color-setting">
+                            <small class="font-gray">艺仓：#1a1919</small>
+                            <small class="font-gray">余德耀：#852C2B</small>
+                            <small class="font-gray">儿童剧场：#4dc0b1</small>
+
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label translate>icon color</label>
+                        <color-picker ng-model="newCustomer.iconColor"></color-picker>
+                        <p class="color-setting">
+                            <small class="font-gray">艺仓：#666</small>
+                            <small class="font-gray">余德耀：#852C2B</small>
+                            <small class="font-gray">儿童剧场：#4dc0b1</small>
+
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label translate>hr color</label>
+                        <color-picker ng-model="newCustomer.hrColor"></color-picker>
+                        <p class="color-setting">
+                            <small class="font-gray">艺仓：#666</small>
+                            <small class="font-gray">余德耀：#852C2B</small>
+                            <small class="font-gray">儿童剧场：#4dc0b1</small>
+
+                        </p>
+                    </div>
+                    <div class="form-group">
+                        <label translate>菜单</label>
+                        <ui-select multiple autofocus="true" ng-model="newCustomer.headMenus" on-select="selectMenu($item)">
+                            <ui-select-match allow-clear="true" placeholder="选择菜单">
+                                {{$item.menuName}}
+                            </ui-select-match>
+                            <ui-select-choices repeat="m in wechatProductMenus track by $index"
+                                               refresh="refreshMenus($select.search)"
+                                               refresh-delay="0">
+                                <div>
+                                    <p>{{m.menuName}}</p>
+                                </div>
+                            </ui-select-choices>
+                        </ui-select>
+                    </div>
+
+                <div class="form-group" id="images">
+
+                    <div class="row">
+                        <label class="col-sm-1 control-label" translate>
+                           LOGO
+                        </label>
+                        <div class="col-sm-5">
+                            <img-upload ng-model="newCustomer.loginImageDto"
+                                        catalog="102"></img-upload>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn bg-vart" ng-disabled="form.$invalid" ng-click="save()" translate>
+                        common.save
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

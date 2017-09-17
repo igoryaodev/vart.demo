@@ -1,0 +1,10 @@
+{
+  "utility": {
+    "clickOrDragImg": "Click or drag image here",
+    "clickOrDragMp3": "Click or drag audio file here",
+    "attributes": "Attributes",
+    "addAttribute": "Add attribute",
+    "scannerWorking": "Waiting to read barcode/qrcode...",
+    "clickOrDragFile": "Click or drag file here"
+  }
+}

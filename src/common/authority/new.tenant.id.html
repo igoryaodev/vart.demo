@@ -1,0 +1,58 @@
+
+<div class="box box-widget">
+  <div class="box-body">
+    <div class="content-title">
+      
+      <form class="form-horizontal">
+          <div class="form-group">
+              <label class="col-sm-1 control-label" translate>Name</label>
+              <div class="col-sm-3">
+                  <input type="text" class="form-control" ng-model="tenant.name">
+              </div>
+              <div class="col-sm-2">
+                  <button class="btn bg-vart" translate ng-click="search()">common.search</button>
+              </div>
+          </div>
+      </form>
+      <div class="pull-right">
+        <button type="button" class="btn bg-vart" translate ng-click="new()">common.new</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="box box-widget">
+  <div class="box-body">
+    <div class="">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>TENANT ID</th>
+          <th>AppId</th>
+          <th>AppSecKey</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="t in tenantList.list">
+          <td>{{t.id}}</td>
+          <td>{{t.name}}</td>
+          <td>{{t.tenantId}}</td>
+          <td>{{t.appId}}</td>
+          <td>{{t.AppSecKey}}</td>
+          <td>
+          <label class="label {{t.isDeleted ? 'label-success' : 'label-danger'}}">{{t.isDeleted ? '开启' : '关闭'}}</label>
+          </td>
+          <th>
+            <a ng-click="edit(t)">编辑</a>
+            <!-- <a class="danger" ng-click="remove(t.id)" ng-if="t.isDeleted">关闭</a> -->
+          </th>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+

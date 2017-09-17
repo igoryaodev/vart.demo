@@ -1,0 +1,37 @@
+@import "var";
+@import "page/login";
+@import "page/work";
+@import "page/thumbnail";
+@import "page/guide";
+@import "page/artist";
+@import "page/cms/cms";
+@import "page/shopmall/products";
+@import "page/utility/uploader";
+@import "page/utility/datepicker";
+@import "page/utility/misc";
+@import "page/utility/tab";
+@import "page/override/button";
+@import "print";
+a {
+  cursor: pointer;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+  min-height: 100% !important;
+  background-color: #ecf0f5;
+
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
+}

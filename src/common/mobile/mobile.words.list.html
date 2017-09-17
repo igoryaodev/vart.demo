@@ -1,0 +1,46 @@
+
+    <div class="box box-widget">
+        <div class="box-body">
+          <div class="content-title">
+            <div class="pull-right">
+                <button class="btn bg-vart" ng-click="openBlackWordsModal()" translate style="margin-left: 15px;">新建敏感词</button>
+            </div>
+          </div>
+          <!--   <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" translate>用户名</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" ng-model="criteria.Keyword">
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn bg-vart" translate ng-click="search()">common.search</button>
+                    </div>
+                </div>
+            </form> -->
+        </div>
+    </div>
+
+    <div class="box box-widget">
+        <div class="box-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>内容</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="s in words.list">
+                        <td>{{s.id}}</td>
+                        <td>{{s.name}}</td>
+                        <td>
+                            <a ng-click="openBlackWordsModal(s)" >编辑</a>
+                            <a ng-click="removeBlackwords(s.id)" class="danger">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pager total="{{words.totalPages}}" current="{{words.pageNumber}}"></pager>
+        </div>
+    </div>

@@ -1,0 +1,31 @@
+.artist-item {
+    padding: 0;
+    img{
+        cursor: pointer;
+    }
+    .artist-item-name {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin: 8px 0;
+    }
+    .artist-item-info {
+        height: 1.1em;
+        font-size: 10px;
+    }
+    .artist-item-description {
+        color: #888888;
+        text-align: center;
+        p {
+            font-size: 10px;
+            margin: 0;
+        }
+        div:nth-child(2) {
+            border-right: 1px solid #f0f0f0;
+            border-left: 1px solid #f0f0f0;
+        }
+    }
+}
+.cursor{
+    cursor: pointer;
+}

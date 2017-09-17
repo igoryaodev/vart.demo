@@ -1,0 +1,48 @@
+
+<div class="box box-widget">
+  <div class="box-body">
+    <div class="content-title">
+      <div class="pull-right">
+        <button type="button" class="btn bg-vart" translate ng-click="newTenantModal()">authority.newTenant</button>
+        <button type="button" class="btn bg-vart" translate ng-click="save()">common.save</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="box box-widget">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <tenant-picker ng-model="roleParams.tenant"></tenant-picker>
+        </div>
+        <div class="rights-tree">
+          <ol ng-model="list">
+            <li ng-repeat="item in list | orderBy:'sort'" >
+              <div class="tree-node tree-node-content" >
+                <input type="checkbox" class="item-check" data-id="{{item.id}}" ng-checked="item.isChecked || item.nameCode == 'base' || item.nameCode =='common.settings'" ng-click="checkItem(item.id)">
+                {{item.nameCode | translate}}
+              </div>
+              <ol ng-model="item.items">
+                <li ng-repeat="subItem in item.Childs | orderBy:'sort'">
+                  <div class="tree-node tree-node-content">
+                    <input type="checkbox" class="sub-check" data-parentId="{{item.id}}" ng-checked="subItem.isChecked || subItem.navigateUrl == 'app.profile'" data-id="{{subItem.id}}" ng-click="checkItem(subItem.id)">
+                    {{subItem.nameCode | translate}}
+                  </div>
+                  <ol ng-model="subItem.items">
+                    <li ng-repeat="third in subItem.Childs | orderBy:'sort'">
+                      <div class="tree-node tree-node-content">
+                        <input type="checkbox" class="third-check" data-parentId="{{subItem.id}}" ng-checked="third.isChecked" data-id="{{third.id}}" ng-click="checkItem(third.id)">
+                        {{third.nameCode | translate}}
+                      </div>
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

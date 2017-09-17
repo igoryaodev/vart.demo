@@ -1,0 +1,15 @@
+<div class="container-fluid uploader">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="uploader-drop" ngf-drop ngf-select ngf-change="upload(file)" ng-model="file" ngf-multiple="false" accept="audio/*">
+                <h6 translate>utility.clickOrDragMp3</h6>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <audio ng-src="{{ngModel.key|qiniu}}" controls alt="" />
+            <div class="progress progress-xs" ng-if="progress!=undefined">
+                <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="progress"></div>
+            </div>
+        </div>
+    </div>
+</div>

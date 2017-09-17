@@ -1,0 +1,30 @@
+{
+  "authority": {
+    "authorityManagement": "Authority Management",
+    "role": "Role",
+    "roleName": "Role Name",
+    "roleDescription": "Role Description",
+    "newRole": "New A Role",
+    "pleaseSelectRole": "Please Select A Role",
+    "roleMenu": "Role Menu Management",
+    "roleUser": "User Role Management",
+    "user": "User",
+    "pleaseSelectUser": "Please Select A User",
+    "newOrgMenu": "New Organization Menu",
+    "selectTenant": "Select A Tenant",
+    "pleaseSelectTenant": "Please Select A Tenant",
+    "pleaseSelectMenu": "Please Select A Menu",
+    "orgMenu": "Tenant Menu",
+    "orgDefaultUser": "Tenant Defalut User",
+    "newTenant": "New Tenant",
+    "tenantName": "Tenant Name",
+    "userName": "User Name",
+    "pwd": "Password",
+    "pleaseSelectPavilion": "Please Select A Pavilion",
+    "menuController": "Menu Controller",
+    "menuId": "MenuID",
+    "controllerName": "ControllerName",
+    "nameCode": "NameCode",
+    "addController": "New Controller"
+  }
+}

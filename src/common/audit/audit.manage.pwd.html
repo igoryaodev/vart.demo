@@ -1,0 +1,27 @@
+<div class="box box-widget">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-6 col-lg-6">
+        <div class="form-group">
+          <tenant-picker ng-model="roleParams.tenant"></tenant-picker>
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th translate>member.name</th>
+              <th translate>common.operation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="item in accounts">
+              <td>{{item.username}}</td>
+              <td>
+                <a ng-click="resetPwd(item)" translate>common.reset</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

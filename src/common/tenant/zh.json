@@ -1,0 +1,28 @@
+{
+  "orgnization": {
+    "orgnization": "组织管理",
+    "name": "组织名称",
+    "member": "成员",
+    "addMember": "添加成员",
+    "memberSearchPlaceholder": "用户名, 姓名",
+    "group": "部门群组",
+    "groupName": "群组名称",
+    "groupSaved": "群组已保存",
+    "addGroup": "添加组",
+    "chooseGroup": "选择组",
+    "memberCount": "成员数",
+    "profile": "组织信息",
+    "assignedGroup": "所属组",
+    "enabled": "可用",
+    "disabled": "禁用"
+  },
+  "member": {
+    "name": "姓名",
+    "email": "邮箱",
+    "username": "用户名",
+    "namePlaceholder": "使用者姓名",
+    "mobile": "手机号",
+    "changePassword": "修改密码",
+    "type": "类型"
+  }
+}

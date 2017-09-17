@@ -1,0 +1,57 @@
+<p>
+    <button type="button" class="btn bg-vart" ui-sref="app.tenant_user_index({id:'new'})" translate>
+        orgnization.addMember
+    </button>
+</p>
+
+<div class="box box-widget">
+    <div class="box-body">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" ng-model="criteria.name"
+                           placeholder="{{'orgnization.memberSearchPlaceholder'|translate}}">
+                </div>
+                <div class="col-sm-2">
+                    <button class="btn bg-vart" ng-click="search()" translate>common.search</button>
+                </div>
+            </div>
+        </form>
+        <hr>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th style="width: 30%" translate>member.username</th>
+                <th style="width: 20%" translate>member.name</th>
+                <th style="width: 30%" translate>orgnization.assignedGroup</th>
+                <th style="width: 10%" translate>common.status</th>
+                <th style="width: 10%"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="u in users.list">
+                <td>
+                    <p>{{u.username}}</p>
+                </td>
+                <td>
+                    <p>{{u.name}}</p>
+                </td>
+                <td>
+                    <label for="" class="label label-danger" ng-show="u.type==3">Admin</label>
+                    <p ng-repeat="g in u.groups">{{g.name}}</p>
+                </td>
+                <td>
+                    <label ng-show="u.isEnabled" class="label label-success" translate>orgnization.enabled</label>
+                    <label ng-show="!u.isEnabled" class="label label-danger" translate>orgnization.disabled</label>
+                </td>
+                <td>
+                    <a ui-sref="app.tenant_user_index({id:u.id})" translate>common.view</a>
+                    <a ng-click="deleteUser($index)" translate class="text-red">common.delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <pager current="{{users.pageNumber}}" total="{{users.totalPages}}"></pager>
+    </div>
+</div>

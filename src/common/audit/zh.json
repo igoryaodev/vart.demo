@@ -1,0 +1,8 @@
+{
+  "audit":{
+    "audit":"注册审核",
+    "institutionName":"机构名称",
+    "inReview":"待审核",
+    "institutionManage": "机构管理"
+  }
+}

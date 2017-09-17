@@ -1,0 +1,15 @@
+<p>
+  <button class="btn bg-vart" translate ng-click="chooseTenantModal()">authority.selectTenant</button>
+</p>
+<!-- 多选 -->
+<div ng-if="isSinglePick!=true">
+  <p ng-show="!ngModel.length>0" translate>common.notYetAdded</p>
+</div>
+
+<!-- 单选 -->
+<div ng-if="isSinglePick== true">
+  <p ng-show="ngModel==undefined" translate>common.notYetAdded</p>
+  <p ng-if="ngModel">
+    {{ngModel.name}}
+  </p>
+</div>

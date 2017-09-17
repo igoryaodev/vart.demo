@@ -1,0 +1,25 @@
+<div class="container-fluid uploader">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="progress progress-xs" ng-if="progress!=undefined">
+                <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="progress"></div>
+            </div>
+            <div class="text-center">
+                <div class="btn-upload" ngf-select ngf-drop ng-model="files" ngf-multiple="true" accept="*" ngf-change="upload(files)" ngf-max-size="50MB">
+                上传附件
+                </div>
+                <div class="file-title-row" ng-repeat="names in ngModel track by $index">
+                    <div>
+                        <span style="color:#d73925;margin-top: 9px;" class="glyphicon glyphicon-remove-sign remove-icon" ng-click="remove($index)"></span>
+                        <span class="file-title">{{names.name}}</span>
+                    </div>
+                </div>
+             <!--    <div class="col-sm-6" ng-repeat="file in ngModel">
+                 <div>
+                     <span style="color:#d73925" class="glyphicon glyphicon-remove-sign remove-icon" ng-click="remove($index)">{{file.name}}</span>
+                 </div>
+             </div> -->
+            </div>
+        </div>
+    </div>
+</div>

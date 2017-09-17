@@ -1,0 +1,44 @@
+<section class="content-header">
+    <h1>通知中心
+    </h1>
+</section>
+<section class="content body">
+    <div class="box box-widget" style="min-height: 500px">
+        <div class="box-body">
+            <div class="row">
+                <div class="col-xs-4">
+                    <table class="table ">
+                        <thead>
+                        <tr>
+                            <th>通知列表</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-click="select(n)" ng-class="{'active':selected.id==n.id}"
+                            ng-repeat="n in notifications.list">
+                            <td>
+                                <p ng-class="{'text-muted':n.isRead}">{{n.title}}</p>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-8">
+                    <h3 class="text-center">{{selected.title}}</h3>
+
+                    <p class="text-muted text-center">{{selected.createdTime|date:"yyyy-MM-dd HH:mm:ss"}}</p>
+                    <hr>
+                    <div ng-bind-html="selected.content|htmlContent">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <pager total="{{notifications.totalPages}}" current="{{notifications.pageNumber}}"
+           page-change="pageChange(page)"></pager>
+
+</section>

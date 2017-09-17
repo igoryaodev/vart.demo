@@ -1,0 +1,24 @@
+<div class="container-fluid uploader">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="progress progress-xs" ng-if="progress!=undefined">
+                <div class="progress-bar progress-bar-red" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" ng-style="progress"></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div ngf-select ngf-drop ng-model="files" class="uploader-drop" ngf-multiple="true" accept="video/*" ngf-change="upload(files)" ngf-max-size="300MB">
+                        <h6 translate>点击上传</h6>
+                    </div>
+                </div>
+                <div class="col-sm-3" ng-repeat="img in ngModel">
+                    <div>
+                        <video id="video" controls="controls" poster="{{img.key|qiniu:'vframe/jpg/offset/7/w/800/h/450'}}" style="width: 118px;max-height: 90px">
+                            <source ng-src="ngModel.key|qiniu:'vframe/jpg/offset/7/w/800/h/450'">
+                        </video>
+                        <span style="color:#d73925" class="glyphicon glyphicon-remove-sign remove-icon" ng-click="remove($index)"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

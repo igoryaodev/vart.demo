@@ -1,0 +1,113 @@
+<div class="skin-black">
+    <div class="wrapper">
+        <!--header-->
+        <header class="main-header hidden-print">
+            <a class="logo" ng-if="G.auth.tenantId!=54">
+                <span class="logo-lg"><b>VART</b>ONE</span>
+                <span class="logo-mini"><b>V</b>C</span>
+            </a>
+            <a class="logo" ng-if="G.auth.tenantId==54">
+                <img src="ucca.jpg" alt="" class="logo-lg center-block" style="height: 60%; margin-top: 12px;">
+                <span class="logo-mini">
+                    <i class="fa fa-home"></i>
+                </span>
+            </a>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a ui-sref="app.message_detail"><i class="fa fa-inbox"></i>更新通知</a>
+                        </li>
+                        <li>
+                            <a ui-sref="app.help_detail"><i class="fa fa-question-circle"></i>{{"common.help"|translate}}</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="http://www.vart.cc/activities" translate>common.globalSelection</a>
+                        </li>
+                        <li class="user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img ng-src="{{G.auth.avatar}}" alt="" class="user-image">
+                                <span>{{G.auth.name||G.auth.username}}</span>
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <!-- User image -->
+                                <li class="user-header">
+                                    <img ng-src="{{G.auth.avatar}}" class="img-circle" alt="User Image">
+
+                                    <p>
+                                        {{G.auth.name||G.auth.username}} ({{G.auth.type==1?'Admin':'Tenant'}})
+                                        <small>{{G.auth.pavilionName}}</small>
+                                    </p>
+                                </li>
+                                <!-- Menu Footer-->
+                                <li class="user-footer">
+                                    <div class="pull-left">
+                                        <a ui-sref="app.profile" class="btn btn-default btn-flat" translate>profile.profile</a>
+                                    </div>
+                                    <div class="pull-right">
+                                        <a ng-click="logout()" class="btn btn-danger btn-flat"
+                                           translate>common.logout</a>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!--sidebar-->
+        <aside class="main-sidebar hidden-print">
+            <div class="sidebar">
+                <ul class="sidebar-menu">
+                    <li class="header">MENU</li>
+                    <li ng-repeat="mi in menu" ng-if="mi.nameCode!='base'" class="treeview" ng-class="{'active':isActive(mi)}">
+                        <a href="#">
+                            <i class="text-center fa {{mi.icon}}"></i>
+                            <span>{{mi.nameCode|translate}}</span>
+                            <i class="fa fa-angle-left pull-right"></i>
+                            <ul class="treeview-menu" ng-if="mi.Childs">
+                                <li ng-repeat="mi2 in mi.Childs" ui-sref-active="active">
+                                    <a ui-sref="{{mi2.navigateUrl}}" ng-if="!mi2.Childs">
+                                        <i class="text-center fa {{mi2.icon}}"></i>
+                                        <span>{{mi2.nameCode|translate}}</span>
+                                    </a>
+                                    <a ng-if="mi2.Childs">
+                                        <i class="text-center fa {{mi2.icon}}"></i>
+                                        <span>{{mi2.nameCode|translate}}</span>
+                                        <i class="fa fa-angle-left pull-right"></i>
+                                        <ul class="treeview-menu" ng-if="mi2.Childs">
+                                            <li ui-sref-active="active" ng-repeat="mi3 in mi2.Childs">
+                                                <a ui-sref="{{mi3.navigateUrl}}">
+                                                    <i class="text-center fa {{mi3.icon}}"></i>
+                                                    <span>{{mi3.nameCode|translate}}</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </a>
+
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <!--main content-->
+        <div class="content-wrapper">
+            <div ui-view></div>
+        </div>
+        <footer class="main-footer hidden-print">
+            <div class="pull-right hidden-xs">
+                <b>Version</b> 2.0
+            </div>
+            <strong>Powered by </strong>
+            <a href="http://www.vart.cc">VART</a>
+            © 2014-2016 All rights reserved.
+        </footer>
+    </div>
+
+</div>

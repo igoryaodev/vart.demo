@@ -1,0 +1,24 @@
+<div class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" ng-click="$hide()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" translate>orgnization.group</h4>
+            </div>
+            <div class="modal-body">
+                <form novalidate class="form-horizontal" name="form">
+                    <div class="form-group">
+                        <label for="" class="col-sm-3 control-label" translate>orgnization.groupName</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" ng-model="group.name" required>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn bg-vart" ng-click="saveGroup()" ng-disabled="form.$invalid" translate>common.save
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,83 @@
+.guide-zone {
+
+  .box-header > .btn {
+    display: none;
+  }
+
+  .box-header:hover > .btn {
+    display: block;
+  }
+}
+
+.fragment-btn {
+  display: none;
+}
+
+.fragment:hover .fragment-btn {
+  display: block;
+}
+
+.fragment-work {
+  .thumbnail {
+    padding: 0;
+  }
+}
+
+.fragment-work:hover > .fragment-work-remove {
+  display: block;
+}
+
+.fragment-work-add {
+  width: 150px;
+  height: 150px;
+  text-align: center;
+  line-height: 150px;
+  font-size: 40pt;
+  display: inline-block;
+  margin: 0 auto;
+  vertical-align: middle;
+  color: #cccccc;
+  border: 3px dashed #ccc;
+  transition: .3s;
+}
+
+.fragment-work-add:hover {
+  color: #aaaaaa;
+  border-color: #aaaaaa;
+}
+
+.fragment-work-remove {
+  z-index: 10;
+  position: absolute;
+  right: 5px;
+  top: -10px;
+  color: white;
+  border-radius: 50%;
+  font-size: 15pt;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  display: none;
+}
+
+.fragment-work-remove:hover,
+.fragment-work-remove:focus {
+  color: #ffffff;
+}
+
+.btn-addzone {
+  width: 50%;
+  margin: 0 auto;
+  padding: 15px 0;
+  text-align: center;
+  border: 4px dashed #bbb;
+  font-size: 1.3em;
+  color: #888;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn-addzone:hover {
+  border-color: #aaa;
+}

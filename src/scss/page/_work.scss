@@ -1,0 +1,16 @@
+.work-item {
+    width: 25%;
+    padding: 10px;
+    .thumbnail {
+        padding: 0;
+    }
+    .work-check {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+}

@@ -1,0 +1,30 @@
+{
+  "authority": {
+    "authorityManagement": "权限管理",
+    "role": "角色",
+    "roleName": "角色名称",
+    "roleDescription": "角色描述",
+    "newRole": "新增角色",
+    "pleaseSelectRole": "请选择一个角色",
+    "roleMenu": "角色菜单管理",
+    "roleUser": "用户角色管理",
+    "user": "用户",
+    "pleaseSelectUser": "请选择一个用户",
+    "newOrgMenu": "新机构菜单",
+    "selectTenant": "选择机构",
+    "pleaseSelectTenant": "请选择一个机构",
+    "pleaseSelectMenu": "请选择一个菜单",
+    "orgMenu": "机构菜单",
+    "orgDefaultUser": "机构默认用户",
+    "newTenant": "新增机构",
+    "tenantName": "机构名称",
+    "userName": "用户名",
+    "pwd": "密码",
+    "pleaseSelectPavilion": "选择场馆",
+    "menuController": "菜单Controller",
+    "menuId": "菜单ID",
+    "controllerName": "Controller名称",
+    "nameCode": "名称Code",
+    "addController": "新增Controller"
+  }
+}

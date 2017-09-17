@@ -1,0 +1,52 @@
+
+    <div class="box box-widget">
+        <div class="box-body">
+          <div class="content-title">
+            <div class="pull-right">
+                <button class="btn bg-vart" ng-click="openBlackUserModal()" translate style="margin-left: 15px;">新建黑名单</button>
+            </div>
+          </div>
+            <!-- <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label" translate>用户名</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" ng-model="criteria.Keyword">
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn bg-vart" translate ng-click="search()">common.search</button>
+                    </div>
+                </div>
+            </form> -->
+        </div>
+    </div>
+
+    <div class="box box-widget">
+        <div class="box-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>用户名</th>
+                        <th>性别</th>
+                        <th>创建日期</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="s in blackUsers.list">
+                        <td>
+                            <img ng-if="s.user.avatarImage.key" width="60" height="60" ng-src="{{s.user.avatarImage.key}}" alt="">
+                            <img ng-if="!s.user.avatarImage.key" width="60" height="60" ng-src="{{s.user.titleImage.key|qiniu}}" alt="">
+                        </td>
+                        <td>{{s.user.alias}}</td>
+                        <td>{{s.user.gender|gender}}</td>
+                        <td>{{s.user.createdTime|date: 'yyyy-MM-dd HH:mm:ss'}}</td>
+                        <td>
+                            <a ng-click="removeBlackUser(s.id)" class="danger">删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <pager total="{{blackUsers.totalPages}}" current="{{blackUsers.pageNumber}}"></pager>
+        </div>
+    </div>

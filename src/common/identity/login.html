@@ -1,0 +1,108 @@
+<div class="login-banner">
+    <img src="img/banner1.jpg" alt=""/>
+    <div class="login-box">
+        <div class="login-box-inner">
+            <h4>登录</h4>
+            <hr/>
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-user fa-lg login-box-icon" style="width:20px"></i>
+                            </div>
+                            <input type="text" placeholder="邮箱" ng-model="username" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <div class="input-group">
+                            <div class="input-group-addon">
+                                <i class="fa fa-lock fa-lg login-box-icon" style="width:20px"></i>
+                            </div>
+                            <input type="password" placeholder="密码" ng-model="password" class="form-control"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <a class="pull-right" ui-sref="login.retrieve_pwd">忘记密码？</a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <button type="submit" ng-disabled="isSending" class="btn btn-block bg-vart" ng-click="login()">
+                            {{isSending?"请稍候...":"登 录"}}
+                        </button>
+                    </div>
+                </div>
+                <hr/>
+                <div class="form-group">
+                    <div class="col-lg-12">
+                        <a ui-sref="login.signup" class="btn btn-block btn-info">机构注册</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="login-info">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-lg-offset-1">
+                    <h3>服务支持</h3>
+                    <ul>
+                        <li>服务电话:(+86) 021-62510103</li>
+                        <li>联系邮箱: <a>contact@vart.cc</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-6">
+                    <h3>下载客户端</h3>
+
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <a class="thumbnail"
+                               href="https://itunes.apple.com/cn/app/vart-si-ren-mei-shu-guan-yi/id881580775?mt=8"
+                               target="_blank">
+                                <i class="fa fa-apple fa-2x"></i>
+                                <span>iPhone<br>免费下载</span>
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a class="thumbnail" href="http://app.mi.com/detail/90864" target="_blank">
+                                <i class="fa fa-android fa-2x"></i>
+                                <span>Android<br>免费下载</span>
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a class="thumbnail" href="" data-toggle="modal" data-target=".modal-wechat">
+                                <i class="fa fa-weixin fa-2x"></i>
+                                <span>关注微信<br>公众号</span>
+                            </a>
+                        </div>
+                        <div class="col-lg-3">
+                            <a class="thumbnail" href="" data-toggle="modal" data-target=".modal-m">
+                                <i class="fa fa-mobile fa-2x"></i>
+                                <span>访问<br>手机网页版</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modal-wechat" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <img src="img/qr_wechat.jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modal-m" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <img src="img/qr_m.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="box box-primary">
+    <div class="box-header with-border">
+        <h3 class="box-title" translate>utility.attributes</h3>
+        <div class="box-tools pull-right">
+            <div class="btn-group">
+                <button class="btn btn-sm bg-vart" ng-click="addProperty()" translate>utility.addAttribute</button>
+                <button type="button" class="btn btn-sm bg-vart dropdown-toggle" data-toggle="dropdown"
+                        ng-if="presetItems.length>0">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" ng-if="presetItems.length>0">
+                    <li ng-repeat="item in presetItems">
+                        <a ng-click="addProperty(item)">{{item.name}} / {{item.nameEn}}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="box-body">
+        <p class="text-center" ng-show="ngModel==undefined||ngModel.length==0" translate>common.notYetAdded</p>
+        <table class="table" ng-show="ngModel.length>0">
+            <thead>
+            <tr>
+                <th>属性名</th>
+                <th>Attribute Name</th>
+                <th>属性值</th>
+                <th>Attribute Value</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="property in ngModel">
+                <td>
+                    <input type="text" class="form-control" ng-model="property.name" required>
+                </td>
+                <td>
+                    <input type="text" class="form-control" ng-model="property.nameEn" required>
+                </td>
+                <td>
+                    <input type="text" class="form-control" ng-model="property.value" required>
+                </td>
+                <td>
+                    <input type="text" class="form-control" ng-model="property.valueEn" required>
+                </td>
+                <td class="td-single-btn">
+                    <a class="text-red" ng-click="removeProperty($index)" translate>common.delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

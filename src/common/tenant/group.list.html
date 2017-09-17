@@ -1,0 +1,27 @@
+<p>
+    <button class="btn bg-vart" type="button" ng-click="newGroup()" translate>orgnization.addGroup</button>
+</p>
+
+<div class="box box-widget">
+    <div class="box-body">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th width="70%" translate>orgnization.groupName</th>
+                <th width="20%" translate>orgnization.memberCount</th>
+                <th width="10%"></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="g in groups">
+                <td>{{g.name}}</td>
+                <td>{{g.memberCount}}</td>
+                <td>
+                    <a ng-click="editGroup($index)" translate>common.view</a>
+                    <a ng-click="deleteGroup($index)" class="text-red" translate>common.delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

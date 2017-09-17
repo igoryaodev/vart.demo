@@ -1,0 +1,80 @@
+<section class="content">
+    <div class="box box-widget">
+        <div class="box-body">
+          <div class="content-title">
+            <div class="pull-right">
+                <button class="btn bg-vart" ng-click="openNewCustomerModal()" translate style="margin-left: 15px;">新建商户</button>
+            </div>
+          </div>
+          <!--   <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">SKU</label>
+                    <div class="col-sm-2">
+                        <input type="text" class="form-control" ng-model="criteria.skuCode">
+                    </div>
+                    <label class="col-sm-1 control-label" translate>product.name</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" ng-model="criteria.name">
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn bg-vart" translate ng-click="save()">common.search</button>
+                    </div>
+                </div>
+            </form> -->
+        </div>
+    </div>
+  <!--   <div class="box box-widget">
+        <h1>{{test}}</h1>
+    </div> -->
+    <div class="box box-widget">
+        <div class="box-body">
+            <div class="table-th label col-sm-12">
+                <div class="col-sm-1">＃</div>
+                <div class="col-sm-2" translate>LOGO</div>
+                <div class="col-sm-2" translate>商户名</div>
+                <div class="col-sm-2" translate>主题</div>
+                <div class="col-sm-2" translate>主色系</div>
+                <div class="col-sm-2" translate>菜单</div>
+                <div class="col-sm-1">操作</div>
+                <!-- <div class="col-sm-1" translate>product.productCat</div> -->
+            </div>
+            <div >
+                <div class="table-tr col-sm-12" ng-repeat="c in customerList.list">
+                    <div class="col-sm-1">
+                    <p>
+                        {{c.tenantId}}
+                    </p>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="wechat-logo">
+                            <img ng-src="{{c.loginImageDto.key|qiniu}}" style="width: 120px;">
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        {{c.title}}
+                    </div>
+                    <div class="col-sm-2">
+                        {{c.theme|theme}}
+                    </div>
+                    <div class="col-sm-2">
+                        <label for="" class="label" style="background: {{c.fontColor}}">font:{{c.fontColor}}</label>
+                        <label for="" class="label" style="background: {{c.buttonColor}}">button:{{c.buttonColor}}</label>
+                    </div>
+                    <div class="col-sm-1">
+                        <div ng-repeat="menu in c.headMenus">
+                            <label for="" class="label" ng-class="menu.isEnable ? 'label-success' : 'label-default'">{{menu.menuName}}</label>
+                        </div>
+                    </div>
+                    <div class="col-sm-1">
+                        <a ui-sref="app.wechat_customer_index({id:c.id})" translate>common.view</a>
+                        <a translate ng-click="openUpdateCustomer(c)">编辑</a>
+                        <a class="danger" translate ng-click="delete(p.id)">common.delete</a>
+
+                    </div>
+                </div>
+            </div>
+            <pager total="{{customerList.totalPages}}" current="{{customerList.pageNumber}}"></pager>
+
+        </div>
+    </div>
+</section>

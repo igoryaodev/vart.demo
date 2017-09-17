@@ -1,0 +1,35 @@
+<div class="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="$hide()">×</button>
+                <h4 class="modal-title">{{title}}</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row" ng-show="!product">
+                        <div class="col-sm-6">
+                            <div class="thumbnail" qrcode="{{url}}"></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="thumbnail">
+                                <img ng-src="{{wechatimg}}" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="product">
+                        <div class="col-sm-12">
+                            <div class="thumbnail" qrcode="{{url}}"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+
+                            <h4 class="text-center">{{url}}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<section class="content-header">
+  <div class="content-title">
+    <div class="pull-left">
+      <h3 translate>authority.newOrgMenu</h3>
+      <ul class="nav nav-pills">
+        <li ui-sref-active="active">
+          <a ui-sref="app.new_tenant_menu" translate>authority.orgMenu</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="app.new_tenant_user" translate>authority.orgDefaultUser</a>
+        </li>
+        <li ui-sref-active="active">
+          <a ui-sref="app.new_tenant_id" translate>TENANT ID</a>
+        </li>
+        <li ui-sref-active="active" ng-if="auth.tenantId == 1">
+          <a ui-sref="app.consignment_list" translate>代销机构</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="content">
+  <ui-view></ui-view>
+</section>

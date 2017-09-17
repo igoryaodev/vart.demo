@@ -1,0 +1,58 @@
+
+    <div class="box box-widget">
+      <div class="box-body">
+        <form novalidate name="form" class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-1 control-label" translate>audit.institutionName</label>
+            <div class="col-sm-3">
+              <input type="text" class="form-control" ng-model="criteria.name">
+            </div>
+            <button class="btn bg-vart" ng-click="search()" translate>common.search</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="box box-widget">
+        <div class="box-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <td width="5%">#</td>
+                    <td width="30%" translate>audit.institutionName</td>
+                    <td width="10%" translate>common.city</td>
+                    <td width="45%" translate>address.address</td>
+                    <td width="5%"></td>
+                    <td width="5%"></td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in signups.list">
+                    <td>
+                        {{item.id}}
+                    </td>
+                    <td>
+                        {{item.name}}
+                        <br> {{item.nameEn}}
+                    </td>
+                    <td>
+                        {{item.city}}
+                    </td>
+                    <td>
+                        {{item.address}}
+                        <br>{{item.addressEn}}
+                        <br>{{item.openTime}}
+                    </td>
+                    <td>
+                        <label class="label label-danger" ng-show="item.isApproved==false"
+                               translate>audit.inReview</label>
+                    </td>
+                    <td>
+                        <button class="btn bg-vart" ng-click="openActivateModal(item)" translate>common.view</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <pager total="{{signups.totalPages}}" current="{{signups.pageNumber}}"></pager>
+
+        </div>
+    </div>

@@ -1,0 +1,10 @@
+{
+  "utility": {
+    "clickOrDragImg": "点击或拖动图片上传",
+    "clickOrDragMp3": "点击或拖动MP3上传",
+    "attributes": "自定义属性",
+    "addAttribute": "添加属性",
+    "scannerWorking": "条形码/二维码读取中...",
+    "clickOrDragFile":"点击或拖动文件上传"
+  }
+}

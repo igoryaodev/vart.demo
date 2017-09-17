@@ -1,0 +1,97 @@
+@media print {
+  // @page {
+  //   size: 80mm 120mm;
+  // }
+  @page {
+    size: 100mm 150mm;
+  }
+  // body {
+  //   font-size: 8pt;
+  // }
+  // label {
+  //   font-size: 8pt;
+  //   font-weight: normal;
+  //   margin-bottom: 0;
+  // }
+  // span {
+  //   font-size: 8pt;
+  //   font-weight: normal;
+  // }
+  .form-group {
+    margin-bottom: 0;
+  }
+  hr{
+    margin: 0;
+    border-color: #ddd;
+    margin-bottom: 1px;
+  }
+  .print-container {
+    border: 1px solid #ddd;
+    padding: 0 6px;
+    box-sizing: border-box;
+    .sfimg {
+      // padding: 5px 0;
+    }
+    .align-center {
+      -webkit-box-align:center;
+      -webkit-align-items: center;
+      align-items: center;
+    }
+    .flex-box {
+      border-bottom: 1px solid #ddd;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+    .pb-left {
+      border-left: 1px solid #ddd;
+    }
+    .pb-right {
+      border-right: 1px solid #ddd;
+    }
+    .print-flex {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: flex;
+      span {
+        font-size: 6pt;
+      }
+    }
+    .flex-item {
+      -webkit-box-flex: 1;
+      -webkit-flex: 1;
+      flex: 1;
+    }
+    .flex-large {
+      -webkit-box-flex: 2;
+      -webkit-flex: 2;
+      flex: 2;
+    }
+    p {
+      margin: 0;
+    }
+    .vertical-word {
+      width: 2em;
+      text-align: center;
+      line-height: 8pt;
+      font-size: 7pt;
+    }
+  }
+  .print-time {
+    span {
+      display: inline-block;
+      font-size: 6pt;
+      width: 5mm;
+    }
+  }
+  .sf-type {
+    font-size: 12pt;
+    height: 7mm;
+    border-bottom: 1px solid #ddd;
+    font-family:"SimHei";
+  }
+  #sfbarCode {
+    width: 70mm;
+    height: 12mm;
+  }
+}

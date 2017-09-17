@@ -1,0 +1,4 @@
+<p style="border-bottom:1px solid #eee" ng-show="isEditing()!=true">{{display||"-"}}
+    <a class="pull-right" style="color:#eee" ng-click="edit()"><i class="fa fa-pencil"></i></a>
+</p>
+<ng-transclude ng-show="isEditing()==true"></ng-transclude>
